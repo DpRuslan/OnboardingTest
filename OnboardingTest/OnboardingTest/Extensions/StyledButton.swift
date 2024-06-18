@@ -66,3 +66,15 @@ extension StyledButton {
         self.isEnabled = style == .active ? true : false
     }
 }
+
+extension StyledButton {
+    func updateTitle(title: String) {
+        self.backgroundColor = UIColor(red: 71/255, green: 190/255, blue: 154/255, alpha: 1)
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: FontExtension.sfd600.rawValue, size: 17)!]
+        let attributedTitle = NSAttributedString(string: title, attributes: attributes)
+        
+        self.setAttributedTitle(attributedTitle, for: .normal)
+        self.setTitleColor(.white, for: .normal)
+    }
+}

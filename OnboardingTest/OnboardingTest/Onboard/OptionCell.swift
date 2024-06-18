@@ -7,14 +7,14 @@ import SnapKit
 
 final class OptionCell: UITableViewCell {
     
-    private let containerView = {
+    private lazy var containerView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 16
         return view
     }()
     
-    private let optionLabel = {
+    private lazy var optionLabel = {
         let label = UILabel()
         label.configure(
             color: UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1),

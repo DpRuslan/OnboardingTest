@@ -25,7 +25,7 @@ enum CustomError: Error, Equatable {
         case .dataError:
             return "Data error occurred"
         case .urlSession:
-            return "Missing Internet connection!(Reload app with turned on Internet)"
+            return "Missing Internet connection\nTurn on your internet"
         case .decodingError:
             return "Error decoding"
         case .uknown:

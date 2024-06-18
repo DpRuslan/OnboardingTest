@@ -29,6 +29,13 @@
 		44DCBF4E2C20AFE900730983 /* Onboard+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF4D2C20AFE900730983 /* Onboard+UITableViewDataSource.swift */; };
 		44DCBF502C20B23A00730983 /* Onboard+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF4F2C20B23A00730983 /* Onboard+UITableViewDelegate.swift */; };
 		44DCBF522C20DA1900730983 /* StyledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF512C20DA1900730983 /* StyledButton.swift */; };
+		44DCBF552C216B4100730983 /* PurchaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF542C216B4100730983 /* PurchaseController.swift */; };
+		44DCBF572C2176A000730983 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF562C2176A000730983 /* UIViewControllerExtension.swift */; };
+		44DCBF592C21965500730983 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF582C21965500730983 /* StringExtension.swift */; };
+		44DCBF5B2C21A83700730983 /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF5A2C21A83700730983 /* PurchaseViewModel.swift */; };
+		44DCBF5E2C21A9A300730983 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF5D2C21A9A300730983 /* Configuration.swift */; };
+		44DCBF612C21C15800730983 /* PurchaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF602C21C15800730983 /* PurchaseManager.swift */; };
+		44DCBF642C21D85C00730983 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DCBF632C21D85C00730983 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +62,14 @@
 		44DCBF4D2C20AFE900730983 /* Onboard+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboard+UITableViewDataSource.swift"; sourceTree = "<group>"; };
 		44DCBF4F2C20B23A00730983 /* Onboard+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Onboard+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		44DCBF512C20DA1900730983 /* StyledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyledButton.swift; sourceTree = "<group>"; };
+		44DCBF542C216B4100730983 /* PurchaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseController.swift; sourceTree = "<group>"; };
+		44DCBF562C2176A000730983 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		44DCBF582C21965500730983 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		44DCBF5A2C21A83700730983 /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
+		44DCBF5C2C21A8AC00730983 /* Purchase.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Purchase.storekit; sourceTree = "<group>"; };
+		44DCBF5D2C21A9A300730983 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		44DCBF602C21C15800730983 /* PurchaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManager.swift; sourceTree = "<group>"; };
+		44DCBF632C21D85C00730983 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +106,9 @@
 				44DCBF172C2091DC00730983 /* AppDelegate.swift */,
 				44DCBF192C2091DC00730983 /* SceneDelegate.swift */,
 				44DCBF2D2C20939E00730983 /* Onboard */,
+				44DCBF532C216B2C00730983 /* Purchase */,
 				44DCBF2E2C2093AC00730983 /* API+Parse */,
+				44DCBF622C21D83700730983 /* Purchase + Network */,
 				44DCBF312C20944500730983 /* Extensions */,
 				44DCBF202C2091DD00730983 /* Assets.xcassets */,
 				44DCBF222C2091DD00730983 /* LaunchScreen.storyboard */,
@@ -125,9 +142,11 @@
 			isa = PBXGroup;
 			children = (
 				44DCBF322C20945200730983 /* URLExtension.swift */,
+				44DCBF582C21965500730983 /* StringExtension.swift */,
 				44DCBF482C20A83500730983 /* UILabelExtension.swift */,
 				44DCBF3B2C20A62600730983 /* FontExtension.swift */,
 				44DCBF512C20DA1900730983 /* StyledButton.swift */,
+				44DCBF562C2176A000730983 /* UIViewControllerExtension.swift */,
 				44DCBF3E2C20A69500730983 /* Fonts */,
 			);
 			path = Extensions;
@@ -152,6 +171,26 @@
 				44DCBF4F2C20B23A00730983 /* Onboard+UITableViewDelegate.swift */,
 			);
 			path = "Onboard+TableViewProtocols";
+			sourceTree = "<group>";
+		};
+		44DCBF532C216B2C00730983 /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				44DCBF542C216B4100730983 /* PurchaseController.swift */,
+				44DCBF5A2C21A83700730983 /* PurchaseViewModel.swift */,
+				44DCBF5C2C21A8AC00730983 /* Purchase.storekit */,
+				44DCBF5D2C21A9A300730983 /* Configuration.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		44DCBF622C21D83700730983 /* Purchase + Network */ = {
+			isa = PBXGroup;
+			children = (
+				44DCBF602C21C15800730983 /* PurchaseManager.swift */,
+				44DCBF632C21D85C00730983 /* NetworkManager.swift */,
+			);
+			path = "Purchase + Network";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,14 +275,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DCBF352C2095B500730983 /* APIModel.swift in Sources */,
+				44DCBF5B2C21A83700730983 /* PurchaseViewModel.swift in Sources */,
 				44DCBF1C2C2091DC00730983 /* OnboardController.swift in Sources */,
+				44DCBF642C21D85C00730983 /* NetworkManager.swift in Sources */,
+				44DCBF5E2C21A9A300730983 /* Configuration.swift in Sources */,
 				44DCBF492C20A83500730983 /* UILabelExtension.swift in Sources */,
 				44DCBF182C2091DC00730983 /* AppDelegate.swift in Sources */,
+				44DCBF572C2176A000730983 /* UIViewControllerExtension.swift in Sources */,
 				44DCBF372C20962800730983 /* ParseManager.swift in Sources */,
 				44DCBF502C20B23A00730983 /* Onboard+UITableViewDelegate.swift in Sources */,
 				44DCBF302C2093C200730983 /* APIManager.swift in Sources */,
+				44DCBF592C21965500730983 /* StringExtension.swift in Sources */,
+				44DCBF552C216B4100730983 /* PurchaseController.swift in Sources */,
 				44DCBF4B2C20AD6200730983 /* OptionCell.swift in Sources */,
 				44DCBF2C2C20933E00730983 /* OnboardViewModel.swift in Sources */,
+				44DCBF612C21C15800730983 /* PurchaseManager.swift in Sources */,
 				44DCBF3C2C20A62600730983 /* FontExtension.swift in Sources */,
 				44DCBF1A2C2091DC00730983 /* SceneDelegate.swift in Sources */,
 				44DCBF4E2C20AFE900730983 /* Onboard+UITableViewDataSource.swift in Sources */,

@@ -14,6 +14,13 @@ final class OnboardController: UIViewController {
     private var onboardViewModel: OnboardViewModel
     var dataSource: Item?
     
+    
+    private lazy var purchaseController = {
+       let vc = PurchaseController()
+        vc.delegate = self
+        return vc
+    }()
+    
     var currentQuestionIndex = 0 {
         didSet {
             animateQuestionChangeWithTransform()
@@ -50,7 +57,7 @@ final class OnboardController: UIViewController {
         fatalError()
     }
     
-    private let setUpLabel = {
+    private lazy var setUpLabel = {
        let label = UILabel()
         
         label.configure(
@@ -62,7 +69,7 @@ final class OnboardController: UIViewController {
         return label
     }()
     
-    private let questionView = {
+    private lazy var questionView = {
         let view = UIView()
         view.backgroundColor = .clear
         return view
@@ -115,6 +122,8 @@ final class OnboardController: UIViewController {
         downloadingDataLoader.startAnimating()
         
         setUpConstraints()
+        
+        NetworkManager.shared.delegate = self
     }
 }
 
@@ -156,7 +165,8 @@ extension OnboardController {
 extension OnboardController {
     @objc private func continueBtnPressed(_ sender: UIButton) {
         if let items = dataSource?.items, currentQuestionIndex == items.count - 1 {
-            print("PremiumControllerShow")
+            purchaseController.modalPresentationStyle = .overFullScreen
+            self.present(purchaseController, animated: true)
         } else {
             currentQuestionIndex += 1
             activeAnswerStateIndex = .none
@@ -200,6 +210,22 @@ extension OnboardController: PopulatableDataSourceProtocol {
     }
     
     func showError(error: CustomError) {
-        print(error.localizedDescription)
+        DispatchQueue.main.async {[weak self] in
+            self?.showErrorAlert(title: error.localizedDescription)
+        }
+    }
+}
+
+extension OnboardController: ClosablePurchaseDelegate {
+    func closePurchase() {
+        purchaseController.dismiss(animated: true)
+    }
+}
+
+extension OnboardController: NetworkManagerDelegate {
+    func becomeActiveAgain() {
+        if dataSource == nil {
+            onboardViewModel.doRequest()
+        }
     }
 }

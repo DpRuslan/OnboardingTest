@@ -12,4 +12,35 @@ extension UILabel {
         self.textAlignment = alignment
         self.font = font
     }
+    
+    func configureAttributedLbl(
+        fullText: String,
+        attributedText: String,
+        defaultTextColor: UIColor,
+        defaultFont: UIFont,
+        specialTextColor: UIColor,
+        specialFont: UIFont,
+        alignment: NSTextAlignment = .left
+    ) {
+        let defaultAttributes = [
+            NSAttributedString.Key.font: defaultFont,
+            NSAttributedString.Key.foregroundColor: defaultTextColor
+        ]
+        
+        let defaultAttributedString = NSMutableAttributedString(string: fullText, attributes: defaultAttributes)
+        
+        let specialAttributes = [
+            NSAttributedString.Key.font: specialFont,
+            NSAttributedString.Key.foregroundColor: specialTextColor
+        ]
+        
+        if let specialRange = fullText.range(of: attributedText) {
+            let nsRange = NSRange(specialRange, in: fullText)
+            defaultAttributedString.setAttributes(specialAttributes, range: nsRange)
+        }
+        
+        self.attributedText = defaultAttributedString
+        self.numberOfLines = 0
+        self.textAlignment = alignment
+    }
 }
